@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sasha ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg,#210b30,#681b55,#bd477f);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 480px;
+  margin: auto;
+  padding: 65px 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.tag {
+  color: #ffc5e4;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 43px;
+  margin: 20px 0;
+  color: #ffb8df;
+  text-shadow: 0 0 25px #ff66bd;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #ffe1f1;
+  line-height: 1.8;
+}
+
+.envelope {
+  margin: 40px auto;
+  font-size: 95px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 15px #ff8acb);
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.12); }
+}
+
+button {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: #ff83c5;
+  color: #42122f;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 20px #ff69b477;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.letter {
+  display: none;
+  background: #fff0f8;
+  color: #64264c;
+  padding: 28px 22px;
+  border-radius: 20px;
+  line-height: 1.9;
+  margin: 25px 0;
+  box-shadow: 0 0 35px #ff9ad5;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter h2 {
+  margin-bottom: 15px;
+  color: #d83f91;
+}
+
+.surprise {
+  display: none;
+  margin-top: 30px;
+}
+
+.surprise h2 {
+  color: #ffb9df;
+  margin-bottom: 15px;
+}
+
+footer {
+  margin-top: 55px;
+  font-size: 12px;
+  color: #ffc8e6;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 6s linear forwards;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <p class="tag">A SPECIAL MESSAGE FOR YOU</p>
+
+  <h1>Hey, Sasha ❤️</h1>
+
+  <p class="subtitle">
+    I made something special.<br>
+    Not expensive, not complicated...<br>
+    Just a little piece of my heart.
+  </p>
+
+  <div class="envelope" onclick="openLetter()">💌</div>
+
+  <button onclick="openLetter()">OPEN YOUR LETTER ❤️</button>
+
+  <div class="letter" id="letter">
+
+    <h2>Dear Sasha 🌹</h2>
+
+    <p>
+      I don't always have the perfect words
+      to explain what you mean to me.
+      But I want you to know something...
+    </p>
+
+    <br>
+
+    <p>
+      You are someone who makes ordinary
+      moments feel special. Your presence
+      brings happiness into my days, and
+      your smile is something I never get
+      tired of thinking about.
+    </p>
+
+    <br>
+
+    <p>
+      I may not be perfect, but my feelings
+      are genuine. I want to keep learning
+      about you, supporting you, laughing
+      with you and creating beautiful
+      memories together.
+    </p>
+
+    <br>
+
+    <p>
+      Thank you for being YOU, Sasha.
+      You are appreciated more than
+      these few words can explain.
+    </p>
+
+    <br>
+
+    <h2>Forever special to me. ❤️</h2>
+
+    <p>With love,<br><b>Your Teddy ❤️</b></p>
+
+    <button onclick="showSurprise()">ONE MORE THING... 💗</button>
+
+  </div>
+
+  <div class="surprise" id="surprise">
+
+    <h2>One little question, Sasha... 🥺</h2>
+
+    <p>
+      Will you keep making beautiful
+      memories with me? ❤️
+    </p>
+
+    <button onclick="answer('YESSS! ❤️')">
+      YESSS! ❤️
+    </button>
+
+    <button onclick="answer('OF COURSE! 🥰')">
+      OF COURSE! 🥰
+    </button>
+
+    <p id="answer" style="margin-top:20px;color:#ffc3e3;"></p>
+
+  </div>
+
+  <footer>
+    Made with ❤️ by Teddy<br>
+    A little website, a big feeling.
+  </footer>
+
+</div>
+
+<script>
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+  document.getElementById("letter").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("surprise").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function answer(message) {
+  document.getElementById("answer").innerHTML =
+    "Awww! 🥹❤️ " + message +
+    "<br>Here's to more beautiful memories together! 🌹";
+  burstHearts();
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = ["❤️","💕","💗","💖","🌸"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8000);
+}
+
+function burstHearts() {
+  for (let i = 0; i < 25; i++) {
+    setTimeout(createHeart, i * 80);
+  }
+}
+
+setInterval(createHeart, 800);
+
+</script>
+
+</body>
+</html>
